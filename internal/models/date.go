@@ -17,6 +17,11 @@ func (m Date) Verify() bool {
 	return m.Start.Before(m.End)
 }
 
+// IsBetween checks whether the date is between the Date's range.
+func (m Date) IsBetween(date time.Time) bool {
+	return date.After(m.Start) && date.Before(m.End)
+}
+
 // NewDate creates a Date model from the given paramters.
 func NewDate(start, end string, isAbroad bool) Date {
 	s, _ := time.Parse("02/01/2006", start)

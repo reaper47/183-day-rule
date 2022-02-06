@@ -17,7 +17,7 @@ func (m *dates) adjustDates() {
 	var isBetweenFound bool
 
 	for _, d := range m.Values {
-		if !isBetweenFound && first.After(d.Start) && first.Before(d.End) {
+		if !isBetweenFound && (d.IsBetween(first) || first == d.Start) {
 			d.Start = first
 			isBetweenFound = true
 		}
