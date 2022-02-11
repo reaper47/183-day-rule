@@ -3,7 +3,7 @@ A simple way to calculate the 183-day rule
 
 # Installation
 
-Download and execute the [release binary](https://github.com/reaper47/183-day-rule/releases) for your OS.
+Download and execute the [release](https://github.com/reaper47/183-day-rule/releases) for your OS.
 
 # Usage
 
