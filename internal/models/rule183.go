@@ -11,7 +11,7 @@ type rule183Results struct {
 // Print prints 183-day rule results nicely.
 func (m rule183Results) Print() {
 	fmt.Println()
-	fmt.Println("Rule 183 results:")
+	fmt.Println("Results:")
 	fmt.Println("Days in the country:", m.DaysInCountry)
 	fmt.Println("Days abroad:", m.DaysAbroad)
 

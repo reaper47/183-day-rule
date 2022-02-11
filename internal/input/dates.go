@@ -7,7 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/reaper47/travel/internal/models"
+	"github.com/reaper47/183-day-rule/internal/constants"
+	"github.com/reaper47/183-day-rule/internal/models"
 )
 
 // AskDates asks the user to input all travel dates.
@@ -22,7 +23,7 @@ func AskDates(history []models.Date) []models.Date {
 	i := 1
 
 	for {
-		fmt.Println("Date #" + strconv.Itoa(i) + " (" + lastDate.End.Format("02/01/2006") + " to dd/mm/yyyy):")
+		fmt.Println("Date #" + strconv.Itoa(i) + " (" + lastDate.End.Format(constants.Layout) + " to dd/mm/yyyy):")
 
 		dates = append(dates, askNewDate(lastDate))
 
@@ -85,7 +86,7 @@ func askDate(msg string) time.Time {
 
 		str = strings.Join([]string{day, month, parts[2]}, "/")
 
-		t, err := time.Parse("02/01/2006", str)
+		t, err := time.Parse(constants.Layout, str)
 		if err == nil {
 			return t
 		}

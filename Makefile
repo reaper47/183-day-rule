@@ -1,2 +1,14 @@
 build:
-	go build -ldflags="-s -w" -o bin/travel main.go
+	go build -ldflags="-s -w" -o bin/
+
+release:
+ifdef tag
+		sh build.sh github.com/reaper47/183-day-rule $(tag)
+else
+		@echo 'Add the tag argument, i.e. `make release tag=v1.0.0`'
+endif
+	
+%:
+	@: 
+
+.PHONY: build release

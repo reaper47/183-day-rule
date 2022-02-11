@@ -1,5 +1,7 @@
 package models
 
+import "fmt"
+
 type dates struct {
 	Values []Date
 }
@@ -46,6 +48,15 @@ func (m dates) calc183Rule() rule183Results {
 		DaysInCountry: daysIn,
 		DaysAbroad:    daysOut,
 		IsPlanOK:      daysIn >= 183,
+	}
+}
+
+// Print prints all dates to the standard output, one per line.
+func (m dates) Print() {
+	fmt.Println()
+	fmt.Println("Dates:")
+	for _, d := range m.Values {
+		d.Print()
 	}
 }
 

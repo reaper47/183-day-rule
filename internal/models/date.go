@@ -2,7 +2,10 @@
 package models
 
 import (
+	"fmt"
 	"time"
+
+	"github.com/reaper47/183-day-rule/internal/constants"
 )
 
 // Date holds information on a date.
@@ -22,9 +25,18 @@ func (m Date) IsBetween(date time.Time) bool {
 	return date.After(m.Start) && date.Before(m.End)
 }
 
+// Print prints a date nicely to the standard output.
+func (m Date) Print() {
+	var isAbroad string
+	if !m.Abroad {
+		isAbroad = "not "
+	}
+	fmt.Printf("%s -> %s (%sabroad)\n", m.Start.Format(constants.Layout), m.End.Format(constants.Layout), isAbroad)
+}
+
 // NewDate creates a Date model from the given paramters.
 func NewDate(start, end string, isAbroad bool) Date {
-	s, _ := time.Parse("02/01/2006", start)
-	e, _ := time.Parse("02/01/2006", end)
+	s, _ := time.Parse(constants.Layout, start)
+	e, _ := time.Parse(constants.Layout, end)
 	return Date{Start: s, End: e, Abroad: isAbroad}
 }
